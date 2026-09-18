@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conversor de temperaturas entre Celsius, Fahrenheit y Kelvin.">
+  <meta name="theme-color" content="#071426">
+  <title>Conversor de Temperaturas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="converter-card" aria-labelledby="app-title">
+      <header class="app-header">
+        <div class="logo" aria-hidden="true">🌡️</div>
+        <h1 id="app-title">Conversor de Temperaturas</h1>
+        <p>Convierte al instante entre Celsius, Fahrenheit y Kelvin.</p>
+      </header>
+
+      <form id="converter-form" novalidate>
+        <div class="field-group">
+          <label for="temperature">Temperatura</label>
+          <div class="input-wrap">
+            <span aria-hidden="true">🌡</span>
+            <input id="temperature" name="temperature" type="number" inputmode="decimal" step="any" placeholder="Ej.: 25" autocomplete="off">
+          </div>
+          <p id="error-message" class="error" role="alert" aria-live="polite"></p>
+        </div>
+
+        <div class="units-grid">
+          <div class="field-group">
+            <label for="from-unit">Unidad de origen</label>
+            <select id="from-unit" name="from-unit">
+              <option value="C">Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+
+          <button id="swap-button" class="icon-button" type="button" aria-label="Intercambiar unidades" title="Intercambiar unidades">⇄</button>
+
+          <div class="field-group">
+            <label for="to-unit">Unidad de destino</label>
+            <select id="to-unit" name="to-unit">
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="C">Celsius (°C)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+        </div>
+
+        <section id="result-card" class="result-card neutral" aria-live="polite">
+          <div class="result-heading"><span id="mood-icon" aria-hidden="true">🌡️</span> Resultado</div>
+          <output id="result" for="temperature from-unit to-unit">—</output>
+          <div class="temperature-scale" aria-hidden="true"><span id="scale-marker" class="scale-marker" hidden></span></div>
+          <div class="scale-labels" aria-hidden="true"><span>Frío</span><span>Templado</span><span>Calor</span></div>
+        </section>
+
+        <button id="clear-button" class="clear-button" type="button"><span aria-hidden="true">↻</span> Limpiar</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
